@@ -2,25 +2,23 @@ import kotlin.browser.document
 import kotlin.browser.window
 
 fun main(args: Array<String>) {
-    val message = "Hello JavaScript!"
     val num = 10
-    val header = """
-        <h1>Hello World</h1>
-        <button id="b1">안녕</button>
-        $num
-    """.trimIndent()
-    println(message)
-
     val root = document.getElementById("root")
-    root!!.innerHTML = "<div>hi<div>"
-    println(root)
 
-    val rootHeader = document.getElementById("root-header")
-    rootHeader!!.innerHTML = header
-    println(rootHeader)
+    val main = document.createElement("div")
+    val rootHeader = document.createElement("p")
+    val b1 = document.createElement("button")
 
-    val b1 = document.getElementById("b1")
-    b1!!.addEventListener("click", {
+    main.textContent = "요"
+    rootHeader.textContent = num.toString()
+    b1.textContent = "눌러염"
+
+    b1.addEventListener("click", {
         window.alert("캬컄캬")
     })
+
+    main.appendChild(rootHeader)
+    main.appendChild(b1)
+    root!!.appendChild(main)
+
 }
